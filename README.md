@@ -17,45 +17,131 @@ npm install jilto
 # CDN
 
 ```code
-<script src="https://cdn.jsdelivr.net/npm/jilto@1.2.0/jilto.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jilto"></script>
 ```
 
 # Usage
 
 Below are some examples of how jilto can be used to generate various HTML elements:
 
-Generating a List
+
+createElement
 
 ```code
-const jilto = require('jilto');
-const htmlList = jilto.generateList(["Item 1", "Item 2", "Item 3"], "my-ul-class", "my-li-class");
-console.log(htmlList);
+const element = createElement('div', { class: 'my-class', id: 'my-id' }, 'Hello World!');
+console.log(element);  // Output: <div class="my-class" id="my-id">Hello World!</div>
+
+```
+
+generateList
+
+```code
+const list = generateList({
+    items: [{ content: 'Item 1', id: 'item1' }, { content: 'Item 2', id: 'item2' }],
+    ulClass: 'my-ul-class',
+    liClass: 'my-li-class',
+    ulId: 'my-ul-id'
+});
+console.log(list);  // Output: <ul class="my-ul-class" id="my-ul-id"><li class="my-li-class" id="item1">Item 1</li><li class="my-li-class" id="item2">Item 2</li></ul>
+
 
 ```
 
 
-Generating a Table
+generateTable
 
 ```code
-const htmlTable = jilto.generateTable([[1, 2], [3, 4]], "my-table-class");
-console.log(htmlTable);
+const table = generateTable({
+    data: [['Cell 1', 'Cell 2'], ['Cell 3', 'Cell 4']],
+    tableClass: 'my-table-class',
+    tableId: 'my-table-id'
+});
+console.log(table);  // Output: <table class="my-table-class" id="my-table-id"><tr><td>Cell 1</td><td>Cell 2</td></tr><tr><td>Cell 3</td><td>Cell 4</td></tr></table>
+
 ```
 
 
-Generating a Paragraph
+generateParagraph
 
 ```code
-const htmlParagraph = jilto.generateParagraph("This is a paragraph.", "my-p-class");
-console.log(htmlParagraph);
+const paragraph = generateParagraph({ text: 'This is a paragraph.', pClass: 'my-p-class', pId: 'my-p-id' });
+console.log(paragraph);  // Output: <p class="my-p-class" id="my-p-id">This is a paragraph.</p>
+
 ```
 
 
-Generating a Navbar
+generateLinks
 ```code
-const links = [{ href: '/home', text: 'Home' }, { href: '/about', text: 'About' }];
-const htmlNavbar = jilto.generateNavbar(links, "my-nav-class", "my-link-class");
-console.log(htmlNavbar);
+const links = generateLinks({
+    lstLinks: [{ href: '/home', text: 'Home', id: 'link1' }, { href: '/about', text: 'About', id: 'link2' }],
+    linkClass: 'my-link-class',
+    containerId: 'my-container-id'
+});
+console.log(links);  // Output: <div class="my-link-class" id="my-container-id"><a href="/home" class="my-link-class" id="link1">Home</a><a href="/about" class="my-link-class" id="link2">About</a></div>
 ```
+
+
+generateHref
+```code
+const href = generateHref({ url: '/home', text: 'Home', linkClass: 'my-href-class', linkId: 'my-href-id' });
+console.log(href);  // Output: <a href="/home" class="my-href-class" id="my-href-id">Home</a>
+```
+
+generateNavbar
+```code
+const navbar = generateNavbar({
+    links: [{ href: '/home', text: 'Home', id: 'navlink1' }, { href: '/about', text: 'About', id: 'navlink2' }],
+    navClass: 'my-nav-class',
+    linkClass: 'my-nav-link-class',
+    navId: 'my-nav-id'
+});
+console.log(navbar);  // Output: <nav class="my-nav-class" id="my-nav-id"><a href="/home" class="my-nav-link-class" id="navlink1">Home</a><a href="/about" class="my-nav-link-class" id="navlink2">About</a></nav>
+```
+
+generateDiv
+
+```code
+const div = generateDiv({ content: 'This is a div.', divClass: 'my-div-class', divId: 'my-div-id' });
+console.log(div);  // Output: <div class="my-div-class" id="my-div-id">This is a div.</div>
+```
+
+generateInput
+
+```code
+const input = generateInput({
+    inputType: 'text',
+    inputName: 'myInput',
+    inputValue: 'Hello',
+    inputClass: 'my-input-class',
+    placeholder: 'Enter text',
+    inputId: 'my-input-id'
+});
+console.log(input);  // Output: <input type="text" name="myInput" value="Hello" class="my-input-class" placeholder="Enter text" id="my-input-id">
+```
+
+generateHtmlPage
+
+```code
+const htmlPage = generateHtmlPage({
+    pageTitle: 'My Page',
+    headHtml: '<link rel="stylesheet" href="style.css">',
+    contentHtml: '<h1>Welcome to My Page</h1>'
+});
+console.log(htmlPage);
+/* Output:
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Page</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Welcome to My Page</h1>
+</body>
+</html>
+*/
+```
+
 
 # API Reference
 
