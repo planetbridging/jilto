@@ -17,7 +17,7 @@ npm install jilto
 # CDN
 
 ```code
-<script src="https://cdn.jsdelivr.net/npm/jilto@1.1.0/jilto.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jilto@1.2.0/jilto.min.js"></script>
 ```
 
 # Usage
