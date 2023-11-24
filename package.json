@@ -1,6 +1,6 @@
 {
   "name": "jilto",
-  "version": "1.2.0",
+  "version": "1.3.0",
   "description": "A versatile and efficient JavaScript library for creating isomorphic HTML templates using concise literal syntax. Jilto seamlessly bridges server-side and client-side rendering, enabling developers to write clean, maintainable code for dynamic web applications. Ideal for projects requiring robust template solutions across diverse environments.",
   "main": "jilto.min.js",
   "scripts": {
