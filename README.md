@@ -14,6 +14,12 @@ Install `jilto` via npm:
 npm install jilto
 ```
 
+# CDN
+
+```code
+<script src="https://cdn.jsdelivr.net/npm/jilto@1.1.0/jilto.min.js"></script>
+```
+
 # Usage
 
 Below are some examples of how jilto can be used to generate various HTML elements:
