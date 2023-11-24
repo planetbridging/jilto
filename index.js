@@ -25,6 +25,19 @@ function generateParagraph(text, pClass = "") {
     return createElement('p', { class: pClass }, text);
 }
 
+// Function to generate links
+function generateLinks(lstLinks, linkClass = "") {
+    return lstLinks.map(link => this.generateHref(link.href, link.text, linkClass)).join('');
+}
+
+
+// Function to generate a hyperlink
+function generateHref(url, text, linkClass = "") {
+    return createElement('a', { href: url, class: linkClass }, text);
+}
+
+
+
 // Function to generate a navbar
 function generateNavbar(links, navClass = "", linkClass = "") {
     const navItems = links.map(link => 
@@ -33,11 +46,70 @@ function generateNavbar(links, navClass = "", linkClass = "") {
     return createElement('nav', { class: navClass }, navItems);
 }
 
+// Function to generate a div with content
+function generateDiv(content, divClass = "") {
+    return createElement('div', { class: divClass }, content);
+}
+
+// Function to generate an input field
+function generateInput(inputType, inputName, inputValue = "", inputClass = "", placeholder = "") {
+    const inputAttributes = {
+        type: inputType,
+        name: inputName,
+        value: inputValue,
+        class: inputClass,
+        placeholder: placeholder
+    };
+    return createElement('input', inputAttributes);
+}
+
+
+
+//creates simple home page
+function generateHtmlPage( pageTitle = 'Page Title', headHtml = '', contentHtml = '' ) {
+    return `
+        <!DOCTYPE html>
+        <html>
+        <head>
+            <title>${pageTitle}</title>
+            ${headHtml}
+        </head>
+        <body>
+            ${contentHtml}
+        </body>
+        </html>
+    `;
+}
+
+
 // Export the functions
 module.exports = {
     createElement,
     generateList,
     generateTable,
     generateParagraph,
-    generateNavbar
+    generateNavbar,
+    generateHtmlPage,
+    generateLinks,
+    generateHref,
+    generateDiv,
+    generateInput
 };
+
+
+/*cmds needed to maintain (because i forget)
+
+
+npm version patch  # for backward-compatible bug fixes
+npm version minor  # for new features that are backward compatible
+npm version major  # for changes that break backward compatibility
+
+npm run build
+
+
+git add .
+git commit -m "Updated package with new features/fixes"
+git push
+
+npm publish
+*/
