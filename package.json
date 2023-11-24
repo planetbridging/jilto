@@ -2,8 +2,9 @@
   "name": "jilto",
   "version": "1.0.1",
   "description": "A versatile and efficient JavaScript library for creating isomorphic HTML templates using concise literal syntax. Jilto seamlessly bridges server-side and client-side rendering, enabling developers to write clean, maintainable code for dynamic web applications. Ideal for projects requiring robust template solutions across diverse environments.",
-  "main": "index.js",
+  "main": "jilto.min.js",
   "scripts": {
+    "build": "terser index.js --compress --mangle --output jilto.min.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -23,5 +24,10 @@
   "bugs": {
     "url": "https://github.com/planetbridging/jilto/issues"
   },
-  "homepage": "https://github.com/planetbridging/jilto#readme"
+  "homepage": "https://github.com/planetbridging/jilto#readme",
+  "files": [
+    "index.js",
+    "jilto.min.js",
+    "README.md"
+  ]
 }
